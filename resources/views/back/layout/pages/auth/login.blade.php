@@ -9,6 +9,7 @@
     <form method="POST" action="{{ route('admin.login-handler') }}">
 
         @csrf
+        <x-form-alert />
         <div class="input-group custom">
             <input type="text" name="login_id" value="{{old('login_id')}}" class="form-control form-control-lg"
                 placeholder="Username">
