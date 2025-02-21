@@ -27,8 +27,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::get('/login','loginForm')->name('login');
             Route::get('/forgot-password','forgotPasswordForm')->name('forgot-password');
             Route::post('/login', 'loginHandler')->name('login-handler');
+            Route::post('/set-password-reset-link', 'setPasswordResetLink')->name('set-password-reset-link');
+            Route::get('/reset-password/{token}', 'resetPasswordForm')->name('reset-password');
+            Route::post('/reset-password-handler', 'resetPasswordHandler')->name('reset_password_handler');
         });
     });
+
+
 
     Route::middleware(['auth'])->group(function(){
         Route::controller(AdminController::class)->group(function(){
